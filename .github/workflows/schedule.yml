@@ -14,5 +14,5 @@ jobs:
         uses: maxam2017/productive-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.GIST_ID }}
+          GITHUB_NAME: ${{ secrets.MY_GITHUB_NAME }}
           TIMEZONE: ${{ vars.TIMEZONE }}
