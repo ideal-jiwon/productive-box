@@ -1,0 +1,39 @@
+name: Generate SVG from Gist
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # every day at 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  generate-svg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch Gist content and generate SVG
+        run: node make-svg.js
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+
+      - name: Push SVG to output branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout --orphan output
+          git rm -rf .
+          mkdir -p graph
+          cp production.svg graph/production.svg
+          git add graph/production.svg
+          git commit -m "Update SVG from Gist"
+          git push -f origin output
