@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Fetch Gist content and generate SVG
-        run: node make-svg.js
+        run: node make-svg.cjs
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
