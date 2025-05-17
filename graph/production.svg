@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="110" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: monospace;
+      font-size: 16px;
+      fill: #333;
+    }
+  </style>
+    <text x="10" y="30">🌞 Morning    44 commits  ███▍░░░░░░░░░░░░░░░░░  16.5%</text>
+    <text x="10" y="50">🌆 Daytime   123 commits  █████████▋░░░░░░░░░░░  46.1%</text>
+    <text x="10" y="70">🌃 Evening    95 commits  ███████▍░░░░░░░░░░░░░  35.6%</text>
+    <text x="10" y="90">🌙 Night       5 commits  ▍░░░░░░░░░░░░░░░░░░░░   1.9%</text>
+</svg>
