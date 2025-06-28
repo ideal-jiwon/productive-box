@@ -23,6 +23,8 @@ https.get(options, res => {
   res.on('data', chunk => data += chunk);
   res.on('end', () => {
     const gist = JSON.parse(data);
+    console.log("📦 Gist API response:", gist);
+    
     const file = Object.values(gist.files)[0];
     const lines = file.content.split('\n');
 
